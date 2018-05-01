@@ -8,5 +8,7 @@ services:
             - https_proxy
             - no_proxy
     image: cubeearth/headless-desktop
+    environment:
+      - STARTUP=xclock
     volumes:
     - $HOME/.containers/xpra/sockets:/var/run/xpra:rw

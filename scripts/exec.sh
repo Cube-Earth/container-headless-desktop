@@ -7,10 +7,10 @@ then
 	if [[ ! -z "$STARTUP" ]]
 	then
 		echo "invoking command from STARTUP environment variable ..."
-		sudo -i -u desktop nohup sh -c '. ./display.env && . $STARTUP' > /tmp/client_startup.out 2>&1 &
+		sudo -i -u desktop nohup sh -c ". ./display.env && $STARTUP" | tee /tmp/client_startup.out 2>&1 &
 	else
 		echo "invoking client_startup script ..."
-		sudo -i -u desktop nohup sh -c '. ./display.env && . /usr/scripts/client_startup.sh' > /tmp/startup.out 2>&1 &
+		sudo -i -u desktop nohup sh -c '. ./display.env && /usr/scripts/client_startup.sh' | tee /tmp/startup.out 2>&1 &
 	fi
 	trap 'kill -s SIGTERM -1' SIGHUP SIGINT SIGTERM
 	tail -f /dev/null
