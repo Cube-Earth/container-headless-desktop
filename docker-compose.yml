@@ -7,7 +7,7 @@ services:
             - http_proxy
             - https_proxy
             - no_proxy
-    image: cubeearth/headless-desktop
+    image: cubeearth/headless-desktop:ubuntu_bionec
     environment:
       - STARTUP=xclock
     volumes:
