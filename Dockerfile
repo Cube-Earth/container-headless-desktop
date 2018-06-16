@@ -30,6 +30,6 @@ COPY scripts/*.sh /usr/scripts/
 RUN chmod -R +x /usr/scripts
 
 ADD files/xpra.conf /home/desktop/.xpra/
-chown -R desktop /home/desktop
+RUN chown -R desktop /home/desktop
 
 ENTRYPOINT [ "/usr/scripts/exec.sh" ]
