@@ -29,6 +29,7 @@ VOLUME /var/run/xpra
 COPY scripts/*.sh /usr/scripts/
 RUN chmod -R +x /usr/scripts
 
-ADD --chown=desktop files/xpra.conf /home/desktop/.xpra/
+ADD files/xpra.conf /home/desktop/.xpra/
+chown -R desktop /home/desktop
 
 ENTRYPOINT [ "/usr/scripts/exec.sh" ]
