@@ -9,7 +9,7 @@ then
 		display=$((display+1))
 	fi
 	echo starting display :$display ...
-	xpra start :$display
+	xpra start --start-via-proxy=no :$display
 	export DISPLAY=:$display
 	echo "export DISPLAY=:$display" > ~/display.env
 	touch /var/run/xpra/"$CONTAINER_LABEL-$HOSTNAME:$display.desc"
